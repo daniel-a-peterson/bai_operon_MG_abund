@@ -1,6 +1,6 @@
 # Step 1 - Map your reads to the bai reference sequences:
 
-Here is a simple bash script to map all the `.fasta` files in your working directory to the provided reference base sequences (`derep_bai_genes_prot.fasta`) using diamond blastx. You do not need to use this script exactly, but you need to create one file for each sample that gives the diamond output from mapping that metagenome sample's nucleotide reads against the reference bai protein sequences.
+Here is a simple bash script to map all the `.fasta` files in your working directory to the provided reference base sequences (`derep_bai_genes_prot_renamed.fasta`) using diamond blastx. You do not need to use this script exactly, but you need to create one file for each sample that gives the diamond output from mapping that metagenome sample's nucleotide reads against the reference bai protein sequences.
 
 ```
 diamond makedb --in derep_bai_genes_prot_renamed.fasta -d bai_PROT
