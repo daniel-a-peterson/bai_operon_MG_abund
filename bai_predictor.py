@@ -128,7 +128,7 @@ def main(*args):
     
     # 
 
-    all_best_hits_df = all_best_hits_df.append(placeholder_df, ignore_index=True, sort=True)
+    all_best_hits_df = pd.concat([all_best_hits_df,placeholder_df])
     logger.debug(all_best_hits_df.shape)
 
     all_best_hits_df = all_best_hits_df[
@@ -213,9 +213,7 @@ def main(*args):
     # 
 
     tax_abun_pivot_df = (
-        tax_abun_df.append(placeholder_list, ignore_index=True)
-        .pivot_table(index=["filename", "gene"], columns="cluster_name", values="qseqid")
-        .fillna(0)
+        pd.concat([tax_abun_df,pd.concat(placeholder_list)]).pivot_table(index=["filename", "gene"], columns="cluster_name", values="qseqid").fillna(0)
     )
     tax_abun_pivot_df["gene_total"] = tax_abun_pivot_df.apply(sum, axis="columns")
     tax_abun_pivot_df = tax_abun_pivot_df.reset_index()
