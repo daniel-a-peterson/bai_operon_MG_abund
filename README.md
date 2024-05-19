@@ -26,4 +26,5 @@ python bai_predictor.py --input_metadata YOUR_INPUT_METADATA.csv --input_diamond
 # Outputs:
 
 BA_transformation_capacity.csv: Proportion of bai operon genes detected overall and for each cluster
+
 BA_transformation_abun.csv: Abundance of bai operon genes overall and for each cluster
