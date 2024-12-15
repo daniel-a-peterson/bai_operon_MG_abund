@@ -37,8 +37,6 @@ constant3 = 90
 
 gene_list = ["BaiA", "BaiB", "BaiCD", "BaiE", "BaiF", "BaiG", "BaiH", "BaiI"]
 
-cluster_dict = {'Pasolli_4552': 'cluster_2', 'Pasolli_15265': 'cluster_7', 'Pasolli_15244': 'cluster_7', 'Pasolli_4631': 'cluster_10', 'Pasolli_6131': 'cluster_1', 'Pasolli_15260': 'cluster_7', 'Pasolli_15267': 'cluster_7', 'Pasolli_15202': 'cluster_9', 'Pasolli_15266': 'cluster_7', 'Pasolli_4630': 'cluster_10', 'Pasolli_15004': 'cluster_6', 'Pasolli_15002': 'cluster_12', 'Pasolli_15210': 'cluster_5', 'Pasolli_15211': 'cluster_15', 'Pasolli_15188': 'cluster_4', 'Pasolli_15209': 'cluster_16', 'Pasolli_15005': 'cluster_8', 'Pasolli_4621': 'cluster_13', 'Pasolli_15190': 'cluster_7', 'Pasolli_4633': 'cluster_3', 'Pasolli_15264': 'cluster_7', 'Pasolli_15003': 'cluster_14', 'Almeida_1': 'cluster_7', 'Almeida_2': 'cluster_7', 'Almeida_3': 'cluster_10', 'Almeida_4': 'cluster_7', 'Almeida_5': 'cluster_7', 'Almeida_6': 'cluster_7', 'Almeida_7': 'cluster_7', 'Almeida_8': 'cluster_7', 'Almeida_9': 'cluster_1', 'Almeida_10': 'cluster_13', 'Almeida_11': 'cluster_10', 'Almeida_12': 'cluster_7', 'Almeida_13': 'cluster_15', 'Almeida_14': 'cluster_2', 'Almeida_16': 'cluster_9', 'Almeida_17': 'cluster_2', 'Almeida_18': 'cluster_8', 'Almeida_20': 'cluster_1', 'Almeida_22': 'cluster_7', 'Almeida_23': 'cluster_7', 'Almeida_24': 'cluster_7', 'Almeida_26': 'cluster_1', 'midas_Clostridium_hiranonis_61655': 'cluster_1', 'midas_Clostridium_hylemonae_61789': 'cluster_3', 'midas_Clostridium_scindens_58238': 'cluster_10', 'midas_Clostridium_sordellii_57678': 'cluster_11', 'midas_Dorea_sp_89094': 'cluster_3', 'midas_Lachnoclostridium_nov_35264': 'cluster_3', 'midas_Lachnoclostridium_nov_76594': 'cluster_10', 'midas_Proteocatella_sphenisci_59007': 'cluster_17', 'midas_Romboutsia_sp_25236': 'cluster_11', 'midas_uncultured_Clostridium_85266': 'cluster_11', 'midas_uncultured_Eubacterium_73696': 'cluster_2'}
-
 #
 
 def main(*args):
@@ -174,11 +172,8 @@ def main(*args):
     
     # 
     
-    all_best_hits_df["cluster"] = all_best_hits_df["sseqid"].apply(
+    all_best_hits_df["cluster_name"] = all_best_hits_df["sseqid"].apply(
         lambda x: x.split("%")[1]
-    )
-    all_best_hits_df["cluster_name"] = all_best_hits_df["cluster"].map(
-        cluster_dict
     )
 
     logger.debug(all_best_hits_df.shape)
